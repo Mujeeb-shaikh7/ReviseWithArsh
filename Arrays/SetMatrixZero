@@ -1,0 +1,29 @@
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& arr) {
+        vector<int> r(arr.size(),0);
+        vector<int> c(arr[0].size(),0);
+        for(int i=0;i<arr.size();i++){
+            for(int j=0;j<arr[0].size();j++){
+                if(arr[i][j]==0){
+                    r[i]=1;
+                    c[j]=1;
+                }
+            }
+        }
+        for(int i=0;i<arr.size();i++){
+            if(r[i]==1){
+                for(int j=0;j<arr[0].size();j++){
+                    arr[i][j]=0;
+                }
+            }
+        }
+        for(int i=0;i<arr[0].size();i++){
+            if(c[i]==1){
+                for(int j=0;j<arr.size();j++){
+                    arr[j][i]=0;
+                }
+            }
+        }
+    }
+};
